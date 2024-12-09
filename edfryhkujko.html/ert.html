@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Portfolio</title>
+  <style>
+    /* General Styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Arial', sans-serif;
+      line-height: 1.6;
+      background: #f4f4f9;
+      color: #333;
+    }
+    a {
+      text-decoration: none;
+      color: #4CAF50;
+    }
+    ul {
+      list-style: none;
+    }
+
+    /* Header */
+    header {
+      background: #4CAF50;
+      color: white;
+      text-align: center;
+      padding: 2rem 0;
+    }
+    nav ul {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+    }
+    nav ul li {
+      font-size: 1.2rem;
+    }
+    nav ul li a:hover {
+      text-decoration: underline;
+    }
+
+    /* Sections */
+    section {
+      padding: 3rem 1rem;
+      text-align: center;
+    }
+    #projects .project-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem;
+    }
+    .project {
+      background: white;
+      border: 1px solid #ddd;
+      padding: 1rem;
+      border-radius: 8px;
+      width: 250px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .project:hover {
+      transform: scale(1.05);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+    .project h3 {
+      color: #4CAF50;
+      margin-bottom: 0.5rem;
+    }
+    .project a {
+      display: block;
+      margin-top: 1rem;
+      font-weight: bold;
+    }
+
+    /* Form */
+    form input, form textarea, form button {
+      width: 90%;
+      margin: 0.5rem 0;
+      padding: 0.8rem;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+    }
+    form button {
+      background: #4CAF50;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+    form button:hover {
+      background: #45a049;
+    }
+
+    /* Footer */
+    footer {
+      background: #333;
+      color: white;
+      text-align: center;
+      padding: 1rem 0;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      nav ul {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav>
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+    <h1>Welcome to My Portfolio</h1>
+  </header>
+
+  <section id="about">
+    <h2>About Me</h2>
+    <p>Hi, I'm [Your Name], a passionate [Your Profession] specializing in [Your Skills]. I love creating amazing web experiences and solving problems with code.</p>
+  </section>
+
+  <section id="projects">
+    <h2>Projects</h2>
+    <div class="project-container">
+      <!-- Projects will be dynamically added here -->
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2>Contact Me</h2>
+    <form id="contactForm">
+      <input type="text" placeholder="Your Name" required>
+      <input type="email" placeholder="Your Email" required>
+      <textarea placeholder="Your Message" rows="5" required></textarea>
+      <button type="submit">Send</button>
+    </form>
+  </section>
+
+  <footer>
+    <p>© 2024 [Your Name]. All rights reserved.</p>
+  </footer>
+
+  <script>
+    // JavaScript for interactivity
+    document.addEventListener("DOMContentLoaded", () => {
+      const projects = [
+        { name: "Portfolio Website", description: "A modern portfolio to showcase skills.", link: "#" },
+        { name: "E-commerce App", description: "An online shopping platform.", link: "#" },
+        { name: "Weather App", description: "A weather forecast app.", link: "#" },
+      ];
+
+      const projectContainer = document.querySelector('.project-container');
+
+      projects.forEach(project => {
+        const projectCard = document.createElement('div');
+        projectCard.classList.add('project');
+        projectCard.innerHTML = `
+          <h3>${project.name}</h3>
+          <p>${project.description}</p>
+          <a href="${project.link}" target="_blank">View Project</a>
+        `;
+        projectContainer.appendChild(projectCard);
+      });
+
+      const contactForm = document.getElementById('contactForm');
+      contactForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        alert('Thank you! Your message has been sent.');
+        contactForm.reset();
+      });
+    });
+  </script>
+</body>
+</html>

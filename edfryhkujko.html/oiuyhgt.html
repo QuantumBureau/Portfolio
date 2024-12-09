@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Frameset Example</title>
+</head>
+<frameset rows="20%,*">
+    <frame srcdoc="
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <title>Top Frame</title>
+    </head>
+    <body>
+        <h1>College Name</h1>
+        <nav>
+            <a href='#'>Home</a> |
+            <a href='#'>Login</a> |
+            <a href='#'>Registration</a> |
+            <a href='#'>Catalogue</a> |
+            <a href='#'>Cart</a>
+        </nav>
+    </body>
+    </html>">
+    <frameset cols="20%,*">
+        <frame srcdoc="
+        <!DOCTYPE html>
+        <html>
+        <head>
+            <title>Left Frame</title>
+        </head>
+        <body>
+            <ul>
+                <li><a href='#'>CSE</a></li>
+                <li><a href='#'>ECE</a></li>
+                <li><a href='#'>EEE</a></li>
+                <li><a href='#'>CIVIL</a></li>
+            </ul>
+        </body>
+        </html>">
+        <frame srcdoc="
+        <!DOCTYPE html>
+        <html>
+        <head>
+            <title>Right Frame</title>
+        </head>
+        <body>
+            <h2>Welcome to the College Website</h2>
+            <p>This is the right frame where content based on the selected department from the left frame will be displayed.</p>
+        </body>
+        </html>">
+    </frameset>
+</frameset>
+</html>
